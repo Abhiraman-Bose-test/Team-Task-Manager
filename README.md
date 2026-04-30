@@ -1,16 +1,24 @@
-# Team-Task-Manager
+# Team Task Manager
+
 A full-stack Team Task Management Web Application where users can create projects, add team members, assign tasks, track progress, and view project dashboards.
 
 The application is built using a microservice-based backend architecture with a React TypeScript frontend.
 
+---
 
-## Live URLs
-https://frontend-task-manager-production-b004.up.railway.app/login
+## Live Application
 
+[Open Live App](https://frontend-task-manager-production-b004.up.railway.app/login)
 
-Frontend: https://github.com/Abhiraman-Bose-test/Frontend-Task-Manager
-User Auth Service: https://github.com/Abhiraman-Bose-test/User-AuthService
-Project Task Service: https://github.com/Abhiraman-Bose-test/Team-Task-Manager
+---
+
+## GitHub Repositories
+
+| Module | Repository |
+|---|---|
+| Frontend | [Frontend Task Manager](https://github.com/Abhiraman-Bose-test/Frontend-Task-Manager) |
+| User Auth Service | [User Auth Service](https://github.com/Abhiraman-Bose-test/User-AuthService) |
+| Project Task Service | [Team Task Manager](https://github.com/Abhiraman-Bose-test/Team-Task-Manager) |
 
 ---
 
@@ -48,7 +56,7 @@ Project Task Service: https://github.com/Abhiraman-Bose-test/Team-Task-Manager
 
 ### Role-Based Access
 
-Admin:
+#### Admin
 
 - Manage project members
 - Create and assign tasks
@@ -57,12 +65,38 @@ Admin:
 - Delete tasks
 - View full project dashboard
 
-Member:
+#### Member
 
 - View assigned projects
 - View assigned tasks
 - Update only assigned task status
 - View task information relevant to their assignment
+
+---
+
+## Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Axios
+- React Router DOM
+
+### Backend
+
+- Java
+- Spring Boot
+- Spring Security
+- JWT
+- Spring Data JPA
+- Hibernate
+- MySQL
+
+### Deployment
+
+- Railway
 
 ---
 
@@ -94,7 +128,90 @@ Team Task Manager
 ```
 
 ---
-## Notes
+
+## Microservice Design
+
+This project uses two backend services:
+
+### UserAuthService
+
+Responsible for:
+
+- User registration
+- User login
+- Password encryption
+- JWT token generation
+- User identity management
+
+### ProjectTaskService
+
+Responsible for:
+
+- Project creation
+- Project member management
+- Role-based access control
+- Task creation and assignment
+- Task status updates
+- Dashboard statistics
+
+---
+
+## Database Design
+
+The application uses separate databases for different services.
+
+### UserAuthService Database
+
+```text
+users
+- id
+- name
+- email
+- password
+- created_at
+- updated_at
+```
+
+### ProjectTaskService Database
+
+```text
+projects
+- id
+- name
+- description
+- created_by_user_id
+- created_at
+- updated_at
+```
+
+```text
+project_members
+- id
+- project_id
+- user_id
+- role
+- created_at
+- updated_at
+```
+
+```text
+tasks
+- id
+- title
+- description
+- due_date
+- priority
+- status
+- project_id
+- assigned_to_user_id
+- created_by_user_id
+- created_at
+- updated_at
+```
+
+---
+
+## Important Notes
 
 - The creator of a project automatically becomes `ADMIN`.
 - Project roles are stored in the `project_members` table.
@@ -102,11 +219,10 @@ Team Task Manager
 - Project and task permissions are managed by `ProjectTaskService`.
 - JWT secret must be identical in both backend services.
 - Vite environment variables must start with `VITE_`.
-- Railway backend services can both run internally on port `8080` because they are separate services.
+- Railway backend services can both run internally on port `8080` because they are deployed as separate services.
 
 ---
 
 ## Author
 
-```text
-Abhiraman Bose
+**Abhiraman Bose**
