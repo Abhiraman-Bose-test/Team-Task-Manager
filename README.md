@@ -6,11 +6,6 @@ The application is built using a microservice-based backend architecture with a 
 
 ---
 
-## Live Application
-
-[Open Live App](https://frontend-task-manager-production-b004.up.railway.app/login)
-
----
 
 ## GitHub Repositories
 
@@ -94,9 +89,6 @@ The application is built using a microservice-based backend architecture with a 
 - Hibernate
 - MySQL
 
-### Deployment
-
-- Railway
 
 ---
 
@@ -219,7 +211,6 @@ tasks
 - Project and task permissions are managed by `ProjectTaskService`.
 - JWT secret must be identical in both backend services.
 - Vite environment variables must start with `VITE_`.
-- Railway backend services can both run internally on port `8080` because they are deployed as separate services.
 
 ---
 
